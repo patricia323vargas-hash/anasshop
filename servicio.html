@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ana's Shop - Servicios</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Hero */
+
+.hero {
+  background: url('servicioprin.jfif') no-repeat center center;
+  background-size: cover; /* IMPORTANTE: que esté en cover */
+  background-position: center;
+  width: 100%;
+  height: 550px; /* Esto ajusta el alto (delgado como querés) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+    .hero-text {
+      flex: 1 1 300px;
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      color: #333;
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .hero-text p {
+      color: #555;
+      font-size: 16px;
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+
+    .hero-text .btn {
+      margin-top: 20px;
+      background-color: #ff7ea8;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      max-width: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Services Grid */
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-card {
+      flex: 1 1 calc(33.333% - 40px);
+      max-width: 320px;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .service-card img {
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* CTA Section */
+    .cta {
+      background-color: #48d1cc;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .cta .btn {
+      background-color: #ff7ea8;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .service-card {
+        flex: 1 1 calc(50% - 40px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .service-card {
+        flex: 1 1 100%;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>SERVICIOS</h1>
+      <p>ATENCIÓN | PAGO | ENVÍO</p>
+      <button class="btn">LO MEJOR EN PRENDAS</button>
+    </div>
+  </section>
+
+  <!-- Services Cards -->
+  <section class="services-container">
+    <div class="service-card">
+      <img src="servicio1.jfif" alt="Atención al cliente">
+      <h3>Atención al cliente</h3>
+      <p>Te ayudamos por correo o WhatsApp con cualquier duda o solicitud que tengas.</p>
+    </div>
+    <div class="service-card">
+      <img src="servicio2.jfif" alt="Métodos de pago seguros">
+      <h3>Métodos de pago seguros</h3>
+      <p>Pagá con tarjeta, transferencia o en efectivo de forma segura y rápida.</p>
+    </div>
+    <div class="service-card">
+      <img src="servicio4.jfif" alt="Envíos a todo el país">
+      <h3>Envíos a todo el país</h3>
+      <p>Recibí tus productos en casa con nuestro servicio de envío nacional rápido.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/179/179386.png" alt="Soporte en línea">
+      <h3>Soporte en línea</h3>
+      <p>Estamos disponibles para asistirte en tiempo real a través de nuestros canales digitales.</p>
+    </div>
+    <div class="service-card">
+      <img src="servico3.jfif" alt="Acceso rápido a catálogos">
+      <h3>Acceso rápido a catálogos</h3>
+      <p>Navegá fácilmente por nuestras colecciones y descubrí las últimas tendencias.</p>
+    </div>
+    <div class="service-card">
+      <img src="servico5.jfif" alt="Novedades y promociones">
+      <h3>Novedades y promociones</h3>
+      <p>Mantente informado sobre nuestras últimas colecciones y descuentos exclusivos.</p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Con estilo en cada detalle</h2>
+    <p>Vení, descubrí nuestros servicios y cómo podemos ayudarte a lucir increíble en cualquier ocasión.</p>
+    <a href="innn.html"><button class="btn">VER PRODUCTOS</button></a>
+  </section>
+
+</body>
+</html>
