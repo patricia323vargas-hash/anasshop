@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ana's Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8ff;
+      color: #002244;
+    }
+
+    header {
+      background-color: #09b8cf;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .logo img {
+      height: 80px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #cce6ff;
+    }
+
+    .bienvenida {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, #022f4d, #228efade);
+      color: white;
+    }
+
+    .bienvenida h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    .video-y-cards {
+      padding: 60px 20px;
+      background-color: #ffffff;
+    }
+
+    .video-y-cards h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #0d0d0e;
+      margin-bottom: 40px;
+    }
+
+    .contenedor-video-cards {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .video-container {
+      flex: 1 1 400px;
+      max-width: 400px;
+    }
+
+    .video-container video {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #041a7c;
+      background-color: #e0e0e0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .video-container video:hover {
+      transform: scale(1.02);
+    }
+
+    .cards-productos {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .fila {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      width: 200px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      background-color: #cce6ff;
+    }
+
+    .card:hover h3,
+    .card:hover p {
+      color: #0daaa2;
+    }
+
+    .imagen-card {
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 0 auto 15px;
+    }
+
+    .imagen-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cards-productos h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #041a7c;
+    }
+
+    .cards-productos p {
+      font-size: 0.95em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .ver-mas {
+      text-decoration: none;
+      color: white;
+      background-color: #041a7c;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .ver-mas:hover {
+      background-color: #3f8afcda;
+    }
+
+    .cards-bienvenida {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 20px;
+      background-color: #f8f8f8;
+      flex-wrap: wrap;
+    }
+
+    .cards-bienvenida .card {
+      max-width: 250px;
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cards-bienvenida i {
+      font-size: 2.5em;
+      color: #041a7c;
+      margin-bottom: 15px;
+    }
+
+    .cards-bienvenida h3 {
+      color: #041a7c;
+      margin-bottom: 10px;
+    }
+
+    .cards-bienvenida p {
+      color: #333;
+      font-size: 0.95em;
+    }
+
+    .testimonios {
+      background-color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .testimonios h2 {
+      font-size: 2em;
+      color: #030303;
+      margin-bottom: 40px;
+    }
+
+    .testimonios-contenedor {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .testimonio {
+      background-color: #f4f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 300px;
+      font-style: italic;
+    }
+
+    .testimonio h4 {
+      margin-top: 15px;
+      color: #041a7c;
+      font-weight: bold;
+    }
+
+    .cta-final {
+      background: linear-gradient(to right, #041a7c, #228efade);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cta-final h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .boton-cta {
+      background-color: white;
+      color: #041a7c;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .boton-cta:hover {
+      background-color: #cce6ff;
+      color: #010931;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #020f4d;
+      color: white;
+    }
+
+    .footer-redes a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    .footer-redes a:hover {
+      color: #cce6ff;
+    }
+
+    @media (max-width: 768px) {
+      .contenedor-video-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cards-productos {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .imagen-card {
+        width: 80px;
+        height: 80px;
+      }
+
+      .cards-bienvenida {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logonegro.png" alt="Tacones JP" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contáctanos</a></li>
+        <a href="mujer.html">Mujer</a>
+      <a href="hombre.html">Hombre</a>
+      <a href="accesorios.html">Accesorios</a>
+      <a href="ofertas.html">Ofertas</a>
+       <a href="servicio.html">servicio</a>
+       
+       <a href="quienes-somos.html">quienes somos</a>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="bienvenida">
+    <h1>Bienvenida a Ana's Shop</h1>
+    <p>Donde la elegancia se fusiona con actitud. Descubre el poder de vestir con estilo, seguridad y sofisticación.
+
+Cada prenda cuenta. Cada look habla por ti.</p>
+  </section>
+
+  <section class="video-y-cards">
+    
+    <section class="video-y-cards">
+    <h2>Descubre Ana's shop estilo en todo momento</h2>
+    <div class="contenedor-video-cards">
+      <div class="video-container">
+        <video id="videoJP" poster="preview.jpg" autoplay loop muted playsinline>
+          <source src="vodeo.mp4" type="video/mp4" />
+          Tu navegador no soporta el video.
+        </video>
+      </div>
+      
+      <section class="cards-productos">
+        <div class="fila">
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap1.png" alt="prenda 1" />
+            </div>
+            <h3>Pantalón elegante</h3>
+            <p>Diseño moderno de corte recto, ideal para combinar con blusas o tops. Tela suave y estructurada que realza la silueta con sofisticación.</p>
+            <a href="" class="ver-mas">mas vendido</a>
+          </div>
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap2.png" alt="prenda 2" />
+            </div>
+            <h3>Vestido corto</h3>
+            <p>Vestido femenino de líneas limpias, con caída fluida y detalles sutiles. Perfecto para eventos casuales o salidas nocturnas con estilo.</p>
+            <a href="" class="ver-mas">mas vendido</a>
+          </div>
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap3.png" alt="prenda 3" />
+            </div>
+            <h3>Camisa de mujer</h3>
+            <p>Camisa versátil de corte clásico, con botones delicados y tela ligera. Ideal para looks formales o combinaciones relajadas.</p>
+            <a href="" class="ver-mas">mas vendido</a>
+          </div>
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap4.png" alt="prenda 4" />
+            </div>
+            <h3>Camisa de hombre</h3>
+            <p>Camisa masculina de diseño atemporal, con cuello estructurado y acabado impecable. Apta para ocasiones elegantes o uso diario.</p>
+            <a href="" class="ver-mas">mas vendido</a>
+          </div>
+        </div>
+
+        <div class="fila fila-inferior">
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap6.png" alt="prenda 5" />
+            </div>
+            <h3>Short casual</h3>
+            <p>Short de tiro medio con ajuste cómodo y diseño minimalista. Perfecto para climas cálidos y outfits relajados con un toque chic.</p>
+            <a href="cap7.png" class="ver-mas">mas vendido</a>
+          </div>
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap8.png" alt="prenda 6" />
+            </div>
+            <h3>Falda femenina</h3>
+            <p>Falda de corte A con movimiento natural y cintura definida. Ideal para combinar con blusas, tops o camisas para un look sofisticado.</p>
+            <a href="cap8.png" class="ver-mas">mas vendidos</a>
+          </div>
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap9.png" alt="prenda 7" />
+            </div>
+            <h3>Cadena delicada</h3>
+            <p>Accesorio sutil y elegante, con acabado brillante y diseño minimalista. Aporta un toque de distinción a cualquier conjunto.</p>
+            <a href="cap9.png" class="ver-mas">mas vendido</a>
+          </div>
+          <div class="card">
+            <div class="imagen-card">
+              <img src="cap11.png" alt="prenda 8" />
+            </div>
+            <h3>Zapatos modernos</h3>
+            <p>Calzado de diseño estilizado, con líneas limpias y acabado pulido. Combinan comodidad y elegancia para completar cualquier outfit.</p>
+            <a href="cap11.png" class="ver-mas">mas vendido</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="cards-bienvenida">
+    <div class="card">
+      <i class="fas fa-gem"></i>
+      <h3>Estilo Exclusivo</h3>
+      <p>Diseños únicos que realzan tu presencia en cada momento.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-shoe-prints"></i>
+      <h3>Comodidad </h3>
+      <p>prendas que te hacen sentir hermosa.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-globe-americas"></i>
+      <h3>Orgullo Hondureño</h3>
+      <p>Inspirados en la fuerza de la mujer centroamericana.</p>
+    </div>
+  </section>
+
+  <section class="testimonios">
+    <h2>Lo que dicen nuestras clientas</h2>
+    <div class="testimonios-contenedor">
+      <div class="testimonio">
+        <p>“¡Me encantó la calidad de las prendas! Los acabados son impecables y el estilo es justo lo que buscaba. Sin duda volveré a comprar.”!</p>
+        <h4>- Maricela M.</h4>
+      </div>
+      <div class="testimonio">
+        <p>“Excelente atención al cliente. Me ayudaron a elegir el outfit perfecto para una ocasión especial, y llegó rapidísimo. ¡Gracias Ana’s Shop!”</p>
+        <h4>- Roxana H.</h4>
+      </div>
+      <div class="testimonio">
+        <p>“La tienda tiene una selección preciosa y moderna. Todo lo que compré me queda perfecto y se siente súper cómodo. ¡Recomendada al 100%!”</p>
+        <h4>- Wendy H.</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <h2>¿Lista para mostrar tu  estilo?</h2>
+    <a href="#" class="boton-cta">lo mejor</a>
+  </section>
+
+   <footer style="background-color: #222; color: #ffffff; padding: 40px 20px 0;">
+  <style>
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      min-width: 200px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    /* Íconos simples con emoji para ejemplo */
+    .icon {
+      margin-right: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-column {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="footer-container">
+
+    <!-- Columna 1: Nombre y descripción -->
+    <div class="footer-column">
+      <h4>Ana's Shop</h4>
+      <p>Una empresa dedicada al estilo personal</p>
+    </div>
+
+    <!-- Columna 2: Enlaces -->
+    <div class="footer-column">
+      <h4>Enlaces</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicio.html">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Contacto -->
+    <div class="footer-column">
+      <h4>Contacto</h4>
+      <ul>
+        <li><span class="icon">📧</span>anashop@gmail.com</li>
+        <li><span class="icon">📞</span>+504 9999-9999</li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Métodos de pago -->
+    <div class="footer-column">
+      <h4>Métodos de pago</h4>
+      <ul>
+        <li><span class="icon">💳</span>Tarjeta de crédito</li>
+        <li><span class="icon">💵</span>Pago en efectivo</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="footer-bottom">
+    © 2025 Ana's Shop. Todos los derechos reservados.
+  </div>
+</footer>
+
+    
+  </footer>
+
+  <script>
+    const video = document.getElementById("videoJP");
+
+    video.addEventListener("mouseenter", () => {
+      video.muted = false;
+      video.play();
+    });
+
+    video.addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  </script>
+</body>
+</html>
