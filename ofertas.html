@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo Mujer - Ana's Shop</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+ <header>
+    <div class="logo">
+  <img src="img11.jfif" width="70" height="70" />
+   <span class="logo-text">Ana's Shop   </span>
+   </div>
+<div style="font-size: 48px; font-weight: bold; color: #13ebef; font-family: 'Segoe UI', sans-serif;">
+  CATÁLOGO DE OFERTAS
+</div>
+</div>
+</div>
+
+ </header>
+  <!-- VOLVER AL INICIO -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <nav id="main-nav" style="margin-left: 40px; display: flex; gap: 20px; align-items: center;">
+      <a href="index.html">Inicio</a>
+       <a href="mujer.html">Mujer</a>
+      <a href="hombre.html">Hombre</a>
+      <a href="accesorios.html">Accesorios</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="servicio.html">servicio</a>
+      <a href="contacto.html">contacto</a></li>
+      <a href="quienes-somos.html">quienes somos</a></li>
+      <span class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></span>
+    </nav>
+    </nav>
+  <br>
+  <br>
+   <div id="mobile-menu" class="mobile-nav">
+      <a href="index.html">Inicio</a>
+      <a href="mujer.html">Mujer</a>
+      <a href="hombre.html">Hombre</a>
+      <a href="accesorios.html">Accesorios</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="servicio.html">servicio</a>
+    </div>
+  </header>
+<style>
+    .carrusel {
+      position: relative;
+      width: 1200px;
+      height: 600px;
+      margin: 40px auto;
+      overflow: hidden;
+      border: 4px solid #dd759a;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #eee;
+    }
+
+    .carrusel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carrusel img.active {
+      opacity: 1;
+    }
+
+    .boton {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(254, 119, 166, 0.8);
+      border: none;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .boton:hover {
+      background-color: rgb(248, 136, 175);
+    }
+
+    .anterior {
+      left: 20px;
+    }
+
+    .siguiente {
+      right: 20px;
+    }
+  </style>
+
+
+  <div class="carrusel">
+    <button class="boton anterior">&#10094;</button>
+    <button class="boton siguiente">&#10095;</button>
+
+    <img src="caarofer1.jfif" class="active" alt="Imagen 1">
+    <img src="carofer2.jfif" alt="Imagen 2">
+    <img src="carofer3.jfif" alt="Imagen 3">
+    <img src="carofer4.jfif" alt="Imagen 4">
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.carrusel img');
+    const anterior = document.querySelector('.anterior');
+    const siguiente = document.querySelector('.siguiente');
+    let index = 0;
+
+    function mostrarSlide(nuevoIndex) {
+      slides[index].classList.remove('active');
+      index = (nuevoIndex + slides.length) % slides.length;
+      slides[index].classList.add('active');
+    }
+
+    anterior.addEventListener('click', () => {
+      mostrarSlide(index - 1);
+    });
+
+    siguiente.addEventListener('click', () => {
+      mostrarSlide(index + 1);
+    });
+
+    // Cambio automático cada 4 segundos
+    setInterval(() => {
+      mostrarSlide(index + 1);
+    }, 4000);
+  </script>
+
+<!-- ✅ Productos organizados correctamente -->
+<section class="products">
+  <div class="product-card">
+    <img src="oerta3.jpg" alt="falda" />
+    <div class="info">
+      <h3>Falda corta X camisa</h3>
+      <p>Falda corta + camisa de tela (conjunto)
+Look fresco y casual que combina feminidad con comodida</p>
+      <h3>L220.00</h3>
+      <button onclick="addToCart('falada', 45)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="oferta2.jpg" alt="lentes claros" />
+    <div class="info">
+      <h3>lentes claros</h3>
+      <p>Lentes claros:Estilo moderno y suave, ideales para cualquier ocasión.</p>
+      <h3>L230.00</h3>
+      <button onclick="addToCart('Camisa Hombre', 30)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="oferta1.jpg" alt="Bolso Elegante" />
+    <div class="info">
+      <h3>vestido X camisa</h3>
+      <p>Vestido tipo camisa (conjunto)
+Una prenda versátil y cómoda, perfecta para un look relajado.</p>
+      <h3>L300.00</h3>
+      <button onclick="addToCart('Bolso Elegante', 60)">Agregar al carrito</button>
+    </div>
+  </div>
+ <div class="card-container">
+    
+  <div class="product-card">
+    <img src="ofer4.jpg" alt="monedero" />
+    <div class="info">
+      <h3>monedero</h3>
+      <p>Monederos de colores llamativos
+Prácticos y alegres, para llevar lo esencial con estilo.</p>
+      <h3>L220.00</h3>
+      <button onclick="addToCart('Zapatos Casual', 55)">Agregar al carrito</button>
+    </div>
+  </div>
+   </div>
+
+  <div class="product-card">
+    <img src="oder6.jpg" alt="zapatos deportivos" />
+    <div class="info">
+      <h3>zaptos deportivos</h3>
+      <p>Zapatos deportivos altos
+Urbanos y con actitud, perfectos para destacar.</p>
+      <h3>L250.00</h3>
+      <button onclick="addToCart('Blusa Blanca', 28)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="ofer5.jpg" alt="llavero" />
+    <div class="info">
+      <h3>llavero</h3>
+      <p>Llaveros decorativos
+Con diseños únicos, un toque especial para tus llaves.</p>
+      <h3>L300.00</h3>
+      <button onclick="addToCart('Jeans Rotos', 40)">Agregar al carrito</button>
+    </div>
+  </div>
+    </div>
+ 
+
+  </section>
+</section>
+</section>
+
+
+ <!-- Mini Carrito -->
+  <div id="cart-modal" class="cart-modal">
+    <h3>Tu carrito</h3>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="cart-total">0</span></p>
+    <button onclick="clearCart()">Vaciar carrito</button>
+  </div>
+  <script src="SCRIPT.JS"></script>
+  <br>
+<br>
+<br>
+
+
+
+  <!-- ✅ Asegúrate que este archivo exista -->
+  <script src="im9.jfif"></script>
+  <!-- Ventana del carrito -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Tu carrito</h3>
+  <ul id="cart-items"></ul>
+  <p>Total: $<span id="cart-total">0.00</span></p>
+  <button onclick="clearCart()" class="clear-btn">Vaciar carrito</button>
+</div>
+
+<script src="SCRIPT.JS"></script>
+ <footer style="background-color: #222; color: #ffffff; padding: 40px 20px 0;">
+  <style>
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      min-width: 200px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    /* Íconos simples con emoji para ejemplo */
+    .icon {
+      margin-right: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-column {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="footer-container">
+
+    <!-- Columna 1: Nombre y descripción -->
+    <div class="footer-column">
+      <h4>Ana's Shop</h4>
+      <p>Una empresa dedicada al estilo personal</p>
+    </div>
+
+    <!-- Columna 2: Enlaces -->
+    <div class="footer-column">
+      <h4>Enlaces</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicio.html">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Contacto -->
+    <div class="footer-column">
+      <h4>Contacto</h4>
+      <ul>
+        <li><span class="icon">📧</span>anashop@gmail.com</li>
+        <li><span class="icon">📞</span>+504 9999-9999</li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Métodos de pago -->
+    <div class="footer-column">
+      <h4>Métodos de pago</h4>
+      <ul>
+        <li><span class="icon">💳</span>Tarjeta de crédito</li>
+        <li><span class="icon">💵</span>Pago en efectivo</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="footer-bottom">
+    © 2025 Ana's Shop. Todos los derechos reservados.
+  </div>
+</footer>
+
+</body>
+</html>
+</body>
+</html>
